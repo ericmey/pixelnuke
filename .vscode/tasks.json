@@ -1,0 +1,53 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (32-bit)",
+            "type": "shell",
+            "command": "./makeall",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Build kernel for Pi Zero 2 W (32-bit)"
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "./makeall clean",
+            "problemMatcher": [],
+            "detail": "Clean all build artifacts"
+        },
+        {
+            "label": "Flash via Serial",
+            "type": "shell",
+            "command": "cd circle/tools/flashy && ./flashy /dev/cu.usbmodem* ../../../src/kernel8-32.img",
+            "problemMatcher": [],
+            "detail": "Upload kernel via serial bootloader",
+            "dependsOn": "Build (32-bit)"
+        },
+        {
+            "label": "Serial Monitor (picocom)",
+            "type": "shell",
+            "command": "picocom -b 115200 /dev/cu.usbmodem*",
+            "problemMatcher": [],
+            "detail": "Open serial monitor at 115200 baud",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Serial Monitor (screen)",
+            "type": "shell",
+            "command": "screen /dev/cu.usbmodem* 115200",
+            "problemMatcher": [],
+            "detail": "Open serial monitor using screen",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        }
+    ]
+}

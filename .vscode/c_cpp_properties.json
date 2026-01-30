@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "ARM Bare Metal (Pi Zero 2 W)",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../minisynth/circle/include",
+                "${workspaceFolder}/../minisynth/circle/addon",
+                "${workspaceFolder}/../minisynth/circle/addon/lvgl",
+                "${workspaceFolder}/../minisynth/circle/addon/fatfs",
+                "/opt/homebrew/Cellar/gcc-arm-embedded/*/arm-none-eabi/include/**"
+            ],
+            "defines": [
+                "RASPPI=3",
+                "AARCH=32",
+                "__circle__"
+            ],
+            "compilerPath": "/opt/homebrew/bin/arm-none-eabi-gcc",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}

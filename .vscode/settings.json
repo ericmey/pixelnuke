@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "*.h": "c",
+        "*.cpp": "cpp",
+        "*.S": "arm",
+        "*.s": "arm"
+    },
+    "editor.tabSize": 8,
+    "editor.detectIndentation": true,
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.errorSquiggles": "enabled",
+    "files.exclude": {
+        "**/*.o": true,
+        "**/*.d": true,
+        "**/*.elf": true,
+        "**/*.img": false,
+        "**/*.map": true
+    },
+    "search.exclude": {
+        "**/circle/addon/wlan/hostap": true
+    },
+    "cortex-debug.armToolchainPath": "/opt/homebrew/bin",
+    "cortex-debug.gdbPath": "/opt/homebrew/bin/arm-none-eabi-gdb"
+}
