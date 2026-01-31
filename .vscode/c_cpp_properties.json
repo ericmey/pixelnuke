@@ -4,10 +4,10 @@
             "name": "ARM Bare Metal (Pi Zero 2 W)",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/../minisynth/circle/include",
-                "${workspaceFolder}/../minisynth/circle/addon",
-                "${workspaceFolder}/../minisynth/circle/addon/lvgl",
-                "${workspaceFolder}/../minisynth/circle/addon/fatfs",
+                "${workspaceFolder}/circle/include",
+                "${workspaceFolder}/circle/addon",
+                "${workspaceFolder}/circle/addon/lvgl",
+                "${workspaceFolder}/circle/addon/fatfs",
                 "/opt/homebrew/Cellar/gcc-arm-embedded/*/arm-none-eabi/include/**"
             ],
             "defines": [

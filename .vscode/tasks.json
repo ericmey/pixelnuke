@@ -22,10 +22,18 @@
         {
             "label": "Flash via Serial",
             "type": "shell",
-            "command": "cd circle/tools/flashy && ./flashy /dev/cu.usbmodem* ../../../src/kernel8-32.img",
+            "command": "./flash.sh",
             "problemMatcher": [],
             "detail": "Upload kernel via serial bootloader",
             "dependsOn": "Build (32-bit)"
+        },
+        {
+            "label": "Prepare SD Card",
+            "type": "shell",
+            "command": "./boot/prepare-sd.sh",
+            "args": ["${input:sdCardPath}"],
+            "problemMatcher": [],
+            "detail": "Copy bootloader files to SD card"
         },
         {
             "label": "Serial Monitor (picocom)",
@@ -48,6 +56,14 @@
                 "reveal": "always",
                 "panel": "dedicated"
             }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "sdCardPath",
+            "type": "promptString",
+            "description": "Path to mounted SD card",
+            "default": "/Volumes/BOOT"
         }
     ]
 }

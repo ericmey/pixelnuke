@@ -1,0 +1,22 @@
+# Build artifacts
+*.o
+*.d
+*.elf
+*.lst
+*.map
+*.img
+
+# Keep boot firmware in circle/boot (downloaded by make)
+# but ignore node_modules
+circle/tools/flashy/node_modules/
+
+# macOS
+.DS_Store
+
+# IDE
+*.swp
+*.swo
+*~
+
+# Local config overrides
+Config.mk.local
