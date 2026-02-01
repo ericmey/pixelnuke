@@ -1,0 +1,61 @@
+name: Build and Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format cppcheck
+
+      - name: Check formatting
+        run: make -C src/bootloader format-check
+
+      - name: Run static analysis
+        run: make -C src/bootloader lint
+
+  build:
+    name: Build Bootloader
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu
+
+      - name: Configure Circle
+        run: |
+          cd circle
+          ./configure -r 3 -p aarch64-linux-gnu-
+
+      - name: Build Circle libraries
+        run: make -C src/bootloader libs
+
+      - name: Build bootloader
+        run: make -C src/bootloader
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bootloader-kernel8.img
+          path: src/bootloader/kernel8.img
+          if-no-files-found: error

@@ -1,3 +1,8 @@
+# ============================================
+# Pixelnuke .gitignore
+# Bare metal Raspberry Pi project using Circle
+# ============================================
+
 # Build artifacts
 *.o
 *.d
@@ -5,18 +10,78 @@
 *.lst
 *.map
 *.img
+*.bin
+*.hex
+/dev/research/
 
-# Keep boot firmware in circle/boot (downloaded by make)
-# but ignore node_modules
-circle/tools/flashy/node_modules/
+# Dependency files
+*.d
 
-# macOS
-.DS_Store
-
-# IDE
+# Editor backup files
 *.swp
 *.swo
 *~
+*.bak
 
-# Local config overrides
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# VS Code (keep settings, ignore workspace-specific)
+.vscode/*.log
+.vscode/.browse.c_cpp.db*
+.vscode/ipch/
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Vim
+*.swp
+*.swo
+Session.vim
+.netrwhist
+
+# Circle framework (handled by submodule, but ignore any local builds)
+circle/tools/flashy/node_modules/
+
+# Local configuration overrides
 Config.mk.local
+*.local
+
+# Debug/crash logs
+*.log
+crash-*.txt
+
+# Temporary files
+*.tmp
+*.temp
+
+# Firmware downloads (downloaded by build, large binaries)
+# Keep these tracked in circle submodule
+
+# SD card mount points (if accidentally created)
+/mnt/
+/Volumes/
+
+# Python (if any scripts)
+__pycache__/
+*.py[cod]
+.env
+.venv/
+
+# Secret/credential files
+wpa_supplicant.conf
+*.pem
+*.key
+secrets.*

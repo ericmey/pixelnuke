@@ -1,0 +1,18 @@
+diff --git a/addon/fatfs/diskio.cpp b/addon/fatfs/diskio.cpp
+index 25edb41d..c9211d52 100644
+--- a/addon/fatfs/diskio.cpp
++++ b/addon/fatfs/diskio.cpp
+@@ -27,10 +27,10 @@
+ 
+ static const char *s_pVolumeName[FF_VOLUMES] =
+ {
+-	"emmc1",
++	"emmc1-1",	// Volume 0 (SD:) = Partition 1 (PXNK_BOOT)
++	"emmc1-2",	// Volume 1 = Partition 2 (PXNK_A)
++	"emmc1-3",	// Volume 2 = Partition 3 (PXNK_B)
+ 	"umsd1",
+-	"umsd2",
+-	"umsd3",
+ 	"ufd1"
+ };
+ 

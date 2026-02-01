@@ -1,0 +1,52 @@
+# Pixelnuke Bootloader - Code Style
+# Based on Circle framework conventions
+
+Language: Cpp
+Standard: c++17
+
+# Indentation: 8-space tabs (embedded convention)
+UseTab: Always
+TabWidth: 8
+IndentWidth: 8
+ContinuationIndentWidth: 8
+
+# Line length
+ColumnLimit: 100
+
+# Braces
+BreakBeforeBraces: Allman
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# Alignment
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: false
+AlignOperands: true
+AlignTrailingComments: true
+
+# Pointers and references
+PointerAlignment: Right
+ReferenceAlignment: Right
+
+# Spaces
+SpaceAfterCStyleCast: false
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Includes
+SortIncludes: false
+IncludeBlocks: Preserve
+
+# Other
+AllowAllParametersOfDeclarationOnNextLine: true
+BinPackParameters: true
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+MaxEmptyLinesToKeep: 2
+NamespaceIndentation: None
+ReflowComments: true

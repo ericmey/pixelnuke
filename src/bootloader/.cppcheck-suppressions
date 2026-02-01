@@ -1,0 +1,27 @@
+# Cppcheck suppressions for Pixelnuke Bootloader
+#
+# Circle framework uses patterns that trigger warnings we can't fix
+
+# Circle framework headers - we don't control these
+*:*circle/addon/*
+*:*circle/include/*
+*:*circle/lib/*
+
+# Functions that could be static are kept as member functions for
+# future use when they need member access
+functionStatic
+
+# C-style casts required by Circle API (CString to const char*)
+cstyleCast
+
+# m_FileSystem is initialized by f_mount(), not constructor
+uninitMemberVar:kernel.cpp
+
+# Unused functions are intentional stubs for future implementation
+unusedPrivateFunction
+
+# Duplicate condition pattern is standard Circle initialization style
+duplicateCondition
+
+# bOK = TRUE followed by if(bOK) is intentional for uniform style
+knownConditionTrueFalse
