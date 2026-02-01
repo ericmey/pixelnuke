@@ -1,4 +1,9 @@
 {
+    "git.ignoredRepositories": [
+        "circle",
+        "circle/addon/wlan/hostap",
+        "circle/addon/lvgl/lvgl"
+    ],
     "files.associations": {
         "*.h": "c",
         "*.cpp": "cpp",
